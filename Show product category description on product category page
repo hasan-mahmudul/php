@@ -1,0 +1,10 @@
+function display_product_category_descriptions(){
+  global $product;
+
+  $terms = get_the_terms( $product->get_id(), 'product_cat');
+
+  foreach ($terms as $term) {
+    echo '<p>' . $term->description  . '</p>';
+  }
+}
+add_action( 'woocommerce_after_shop_loop', 'display_product_category_descriptions', 45);
